@@ -240,3 +240,39 @@ In addition to logging the data to your terminal/bash window, output the data to
 - Do not overwrite your file each time you run a command
 
 **/
+
+
+console.log("====================================================================================");
+console.log("");
+console.log("");
+
+let user_input = process.argv[2];
+if (user_input == "my-tweets")
+{
+	// console.log(user_input);
+
+	// Returns the 20 most recent mentions (Tweets containing a users’s @screen_name) for the authenticating user.
+	var params = {
+		screen_name: 'vicknadarajuofa',
+		count: 20,
+		include_rts: 1
+	};
+	
+	client.get('statuses/user_timeline', params, function(error, tweets, response)
+	{
+		if (!error) {
+			console.log("Tweets from @" + params.screen_name + " : ");
+			console.log("---------------------------------");
+			for (let i = 0; i < tweets.length; i++ )
+			{
+				console.log("Tweet : " + tweets[i].text + "\t | " + "Created at : " + tweets[i].created_at);
+			}
+		}
+		console.log("====================================================================================");
+	}
+	);
+
+} else {
+	console.log("Invalid input! Please try again.");
+}
+
