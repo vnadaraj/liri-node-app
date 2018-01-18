@@ -149,8 +149,8 @@ const Twitter = require('twitter');
 const keys = require("./key.js");
 
 // then be able to access your keys information like this
-console.log(keys.spotify);
-console.log(keys.twitter);
+//console.log(keys.spotify);
+//console.log(keys.twitter);
 var spotify = new Spotify(keys.spotify);
 var client = new Twitter(keys.twitter);
 
