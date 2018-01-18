@@ -246,8 +246,8 @@ console.log("===================================================================
 console.log("");
 console.log("");
 
-let user_input = process.argv[2];
-if (user_input == "my-tweets")
+let userInput = process.argv[2];
+if (userInput == "my-tweets")
 {
 	// console.log(user_input);
 
@@ -271,6 +271,78 @@ if (user_input == "my-tweets")
 		console.log("====================================================================================");
 	}
 	);
+
+} else if (userInput == "spotify-this-song") {
+
+  //  Default song handling
+  let defSongName = "The Sign";
+  
+  // Check the user input at index 3
+  let songName = process.argv[3];
+
+  for (let sn = 4; sn < process.argv.length; sn++) {
+    songName = songName + " " + process.argv[sn];
+    console.log(songName);
+  };
+
+  if (songName) {
+    // Call Spotify API
+    spotify.search(
+      {
+        type: 'track', query: songName
+      }, function(songErr, songData) {
+        if (songErr) {
+          return console.log('Error occurred: ' + songErr);
+        }
+        // console.log(songData);
+        for (let i = 0; i < songData.tracks.items.length; i++) {
+          console.log("-----------------------------------------------------------")
+          // Artists
+          // Song name
+          // preview_url
+          // album
+          for (let k = 0; k < songData.tracks.items[i].artists.length; k++) {
+            //console.log(songData.tracks.items[i].artists);
+            console.log("Artist(s)         : " + songData.tracks.items[i].artists[k].name);
+          }
+          console.log("Song Name         : " + songData.tracks.items[i].name);
+          console.log("Album Preview URL : " + songData.tracks.items[i].preview_url);
+          console.log("Album Name        : " + songData.tracks.items[i].album.name);
+        };
+      }
+    );
+  } else {
+
+    // Call Spotify API
+    spotify.search(
+      {
+        type: 'track', query: defSongName
+      }, function(songErr, songData) {
+        if (songErr) {
+          return console.log('Error occurred: ' + songErr);
+        }
+        // console.log(songData);
+        for (let i = 0; i < songData.tracks.items.length; i++) {
+          console.log("-----------------------------------------------------------")
+          // Artists
+          // Song name
+          // preview_url
+          // album
+          for (let k = 0; k < songData.tracks.items[i].artists.length; k++) {
+            //console.log(songData.tracks.items[i].artists);
+            if (songData.tracks.items[i].artists[k].name == "Ace of Base") {
+              foundArtist = i;
+              console.log("Artist(s)         : " + songData.tracks.items[i].artists[k].name);
+          console.log("Song Name         : " + songData.tracks.items[i].name);
+          console.log("Album Preview URL : " + songData.tracks.items[i].preview_url);
+          console.log("Album Name        : " + songData.tracks.items[i].album.name);
+            }
+          }
+        };
+      }
+    );
+  }
+
 
 } else {
 	console.log("Invalid input! Please try again.");
