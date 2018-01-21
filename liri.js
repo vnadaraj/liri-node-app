@@ -265,6 +265,9 @@ if (userInput == "my-tweets")
 			console.log("---------------------------------");
 			for (let i = 0; i < tweets.length; i++ )
 			{
+        // To return the whole JSON object with prettify to identify object key names
+        // console.log(JSON.stringify(tweets, null, 2));
+        // Below is a cut down version of the JSON output:
 				console.log("Tweet : " + tweets[i].text + "\t | " + "Created at : " + tweets[i].created_at);
 			}
 		}
@@ -301,6 +304,11 @@ if (userInput == "my-tweets")
           // Song name
           // preview_url
           // album
+
+          // To return the whole JSON object with prettify to identify object key names
+          // console.log(JSON.stringify(songData, null, 2));
+
+          // Below is a cut down version of the JSON output:
           for (let k = 0; k < songData.tracks.items[i].artists.length; k++) {
             //console.log(songData.tracks.items[i].artists);
             console.log("Artist(s)         : " + songData.tracks.items[i].artists[k].name);
@@ -313,7 +321,7 @@ if (userInput == "my-tweets")
     );
   } else {
 
-    // Call Spotify API
+    // Call Spotify API with a default song name "The Sign" by "Ace of Base"
     spotify.search(
       {
         type: 'track', query: defSongName
@@ -328,8 +336,15 @@ if (userInput == "my-tweets")
           // Song name
           // preview_url
           // album
+
+          // To return the whole JSON object with prettify to identify object key names
+          // console.log(JSON.stringify(songData, null, 2));
+
+          // Below is a cut down version of the JSON output:
           for (let k = 0; k < songData.tracks.items[i].artists.length; k++) {
             //console.log(songData.tracks.items[i].artists);
+
+            // If no song is provided then we default to "The Sign" by Ace of Base.
             if (songData.tracks.items[i].artists[k].name == "Ace of Base") {
               foundArtist = i;
               console.log("Artist(s)         : " + songData.tracks.items[i].artists[k].name);
@@ -343,6 +358,112 @@ if (userInput == "my-tweets")
     );
   }
 
+
+} else if (userInput == "movie-this") {
+  /**
+  Output the following information to your terminal/bash window:
+
+   * Title of the movie.
+   * Year the movie came out.
+   * IMDB Rating of the movie.
+   * Rotten Tomatoes Rating of the movie.
+   * Country where the movie was produced.
+   * Language of the movie.
+   * Plot of the movie.
+   * Actors in the movie.
+  **/
+
+  // Check the user input at index 3
+  let movieTitle = process.argv[3];
+
+  for (let mn = 4; mn < process.argv.length; mn++) {
+    movieTitle = movieTitle + "+" + process.argv[mn];
+    //console.log(movieTitle);
+  };
+
+  if (movieTitle) {
+    // Then run a request to the OMDB API with the movie specified
+    let queryUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&y=&plot=short&apikey=trilogy";
+    //console.log(queryUrl);
+
+    request(queryUrl, function(movieError, movieResponse, movieBody) {
+
+      // To handle situations where there is a typo in the movie name
+      let movieFound = JSON.parse(movieBody).Response.toLowerCase();
+      //console.log(movieFound);
+
+      // If the request is successful (i.e. if the response status code is 200)
+      if (!movieError && movieResponse.statusCode === 200 && movieFound === "true") {
+        //console.log("Error                : " + movieError);
+        //console.log("Response Status Code : " + movieResponse.statusCode);
+        //console.log("Body Response        : " + movieFound);
+        //console.log("###############################");
+        // Parse the body of the site and recover just these:
+        // Title of the movie.
+        // Year the movie came out.
+        // IMDB Rating of the movie.
+        // Rotten Tomatoes Rating of the movie.
+        // Country where the movie was produced.
+        // Language of the movie.
+        // Plot of the movie.
+        // Actors in the movie.
+
+        // Use console.log(JSON.parse(movieBody)) to disect the JSON object returned
+
+        console.log("Movie Title            : " + JSON.parse(movieBody).Title);
+        console.log("Release Year           : " + JSON.parse(movieBody).Year);
+        console.log("IMDB rating            : " + JSON.parse(movieBody).imdbRating);
+        console.log("Rotten Tomatoes Rating : " + JSON.parse(movieBody).Ratings[1].Value);
+        console.log("Country of Production  : " + JSON.parse(movieBody).Country);
+        console.log("Language               : " + JSON.parse(movieBody).Language);
+        console.log("Plot                   : " + JSON.parse(movieBody).Plot);
+
+      } else {
+        console.log(JSON.parse(movieBody));
+      }
+    });
+  } else {
+    // Set up default movie to query
+    let movieTitle = "Mr.+Nobody"
+
+    // Then run a request to the OMDB API with the movie specified
+    let queryUrl = "http://www.omdbapi.com/?t=" + movieTitle + "&y=&plot=short&apikey=trilogy";
+
+    request(queryUrl, function(movieError, movieResponse, movieBody) {
+
+      // To handle situations where there is a typo in the movie name
+      let movieFound = JSON.parse(movieBody).Response.toLowerCase();
+      //console.log(movieFound);
+
+      // If the request is successful (i.e. if the response status code is 200)
+      if (!movieError && movieResponse.statusCode === 200 && movieFound === "true") {
+        //console.log("Error                : " + movieError);
+        //console.log("Response Status Code : " + movieResponse.statusCode);
+        //console.log("Body Response        : " + movieFound);
+        //console.log("###############################");
+        // Parse the body of the site and recover just these:
+        // Title of the movie.
+        // Year the movie came out.
+        // IMDB Rating of the movie.
+        // Rotten Tomatoes Rating of the movie.
+        // Country where the movie was produced.
+        // Language of the movie.
+        // Plot of the movie.
+        // Actors in the movie.
+
+        // Use console.log(JSON.parse(movieBody)) to disect the JSON object returned
+
+        console.log("Movie Title            : " + JSON.parse(movieBody).Title);
+        console.log("Release Year           : " + JSON.parse(movieBody).Year);
+        console.log("IMDB Rating            : " + JSON.parse(movieBody).imdbRating);
+        console.log("Rotten Tomatoes Rating : " + JSON.parse(movieBody).Ratings[1].Value);
+        console.log("Country of Production  : " + JSON.parse(movieBody).Country);
+        console.log("Language               : " + JSON.parse(movieBody).Language);
+        console.log("Plot                   : " + JSON.parse(movieBody).Plot);
+
+      }
+    });
+  }
 
 } else {
 	console.log("Invalid input! Please try again.");
