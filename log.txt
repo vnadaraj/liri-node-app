@@ -1,0 +1,220 @@
+====================================================================================
+Mon Jan 22 2018 00:09:15 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+-----------------------------------------------------------
+Artist(s)         : Backstreet Boys
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : The Hits--Chapter One
+-----------------------------------------------------------
+Artist(s)         : Backstreet Boys
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/f9f504a705fcaaf2f24b004b629725451014ad6c?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : The Essential Backstreet Boys
+-----------------------------------------------------------
+Artist(s)         : Backstreet Boys
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/b8c2410a5acb68b462be6ac85f1312430e2b149c?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : Millennium
+-----------------------------------------------------------
+Artist(s)         : Anthem Lights
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/4a163fbfa2dbbe4433f277e0e7395dca656364f5?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : Covers Part IV
+-----------------------------------------------------------
+Artist(s)         : Glee Cast
+Song Name         : Bye Bye Bye / I Want It That Way (Glee Cast Version)
+Album Preview URL : https://p.scdn.co/mp3-preview/3aa63b5c98b98ae333e567813e5c720abb2914f0?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : Bye Bye Bye / I Want It That Way (Glee Cast Version)
+-----------------------------------------------------------
+Artist(s)         : Manuel Costa
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/cdde86f49ca4ef217ac08bbbb0c6295c16f015b0?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : I Want It That Way
+-----------------------------------------------------------
+Artist(s)         : Backstreet Boys
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/2f96341eb8415a3efb27375db1c4d59928408c2f?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : 90 Sweet 90s Hits!
+-----------------------------------------------------------
+Artist(s)         : "Weird Al" Yankovic
+Song Name         : Ebay (Parody of "I Want It That Way" by the Backstreet Boys)
+Album Preview URL : https://p.scdn.co/mp3-preview/e217ea111ab84a777f204252fce4b18d5de3ae80?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : Poodle Hat
+-----------------------------------------------------------
+Artist(s)         : Landon Austin & Julia Sheer
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/e777be5446dc3df34abc2eaec241edb5a590976c?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : I Want It That Way
+-----------------------------------------------------------
+Artist(s)         : Dynamite Boy
+Song Name         : I Want It That Way
+Album Preview URL : null
+Album Name        : Punk Goes Pop
+-----------------------------------------------------------
+Artist(s)         : Boyce Avenue
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/764f1dcb8c9a9cec099cc361cb388f931bf023d3?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : New Acoustic Sessions, Vol. 3
+-----------------------------------------------------------
+Artist(s)         : Kyle Olthoff
+Artist(s)         : Destiny Jenkins
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/101776fe4fc24aac543f6b4c5aa4273ac9d2dcc4?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : I Want It That Way
+-----------------------------------------------------------
+Artist(s)         : "Weird Al" Yankovic
+Song Name         : Ebay (Parody of "I Want It That Way" by the Backstreet Boys)
+Album Preview URL : https://p.scdn.co/mp3-preview/5632d8e302d70afaa8f79c962aa4b2032a45b3ef?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : The Essential "Weird Al" Yankovic
+-----------------------------------------------------------
+Artist(s)         : Steel Panther
+Song Name         : I Want It That Way
+Album Preview URL : null
+Album Name        : I Want It That Way
+-----------------------------------------------------------
+Artist(s)         : Backstreet Boys
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/c9302062adf4f59e60335f30c7ca46b487a267fb?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : NOW That's What I Call 90s Pop
+-----------------------------------------------------------
+Artist(s)         : Backstreet Boys
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/adf2485de3f3f375593b5307a792e8d8e6f19794?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : NKOTBSB
+-----------------------------------------------------------
+Artist(s)         : Scott Bradlee's Postmodern Jukebox
+Artist(s)         : Shoshana Bean
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/53296f4b689baaa0be6d94e8720c044e98d4b3e3?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : Selfies on Kodachrome
+-----------------------------------------------------------
+Artist(s)         : FROIDZ
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/fdf46a47cbaf363ff9379b4222a74d1ba8291b67?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : I Want It That Way
+-----------------------------------------------------------
+Artist(s)         : Scary Pockets
+Artist(s)         : Casey Abrams
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/33685e005149d5e7d0199a764163ff77f7762e29?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : Nu Funk
+-----------------------------------------------------------
+Artist(s)         : Jason Chen
+Artist(s)         : Joseph Vincent
+Song Name         : I Want It That Way
+Album Preview URL : https://p.scdn.co/mp3-preview/cba62099b5bec2bc9244aaeaba0422556f6df04e?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : I Want It That Way
+====================================================================================
+Mon Jan 22 2018 00:11:26 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+Invalid input! Please try again.
+====================================================================================
+Mon Jan 22 2018 00:12:15 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+Tweets from @vicknadarajuofa : 
+---------------------------------
+Tweet : hello21	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello20	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello19	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello18	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello17	 | Created at : Wed Jan 17 08:46:16 +0000 2018
+Tweet : hello16	 | Created at : Wed Jan 17 08:46:16 +0000 2018
+Tweet : hello15	 | Created at : Wed Jan 17 08:46:16 +0000 2018
+Tweet : hello14	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello13	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello12	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello11	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello10	 | Created at : Wed Jan 17 08:46:14 +0000 2018
+Tweet : https://t.co/wnJhh2RJcD	 | Created at : Wed Jan 17 08:46:14 +0000 2018
+Tweet : Hello8	 | Created at : Wed Jan 17 08:46:14 +0000 2018
+Tweet : Hello7	 | Created at : Wed Jan 17 08:46:13 +0000 2018
+Tweet : Hello6	 | Created at : Wed Jan 17 08:46:13 +0000 2018
+Tweet : Hello5	 | Created at : Wed Jan 17 08:46:13 +0000 2018
+Tweet : Hello4	 | Created at : Wed Jan 17 06:47:42 +0000 2018
+Tweet : Hello3	 | Created at : Wed Jan 17 06:35:13 +0000 2018
+Tweet : Hello2	 | Created at : Wed Jan 17 06:35:03 +0000 2018
+====================================================================================
+Mon Jan 22 2018 00:13:33 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+Movie Title            : Jaws 2
+Release Year           : 1978
+IMDB rating            : 5.7
+Rotten Tomatoes Rating : 57%
+Country of Production  : USA
+Language               : English
+Plot                   : Police chief Brody must protect the citizens of Amity after a second monstrous shark begins terrorizing the waters.
+====================================================================================
+Mon Jan 22 2018 00:15:49 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+Movie Title            : Mr. Nobody
+Release Year           : 2009
+IMDB rating            : 7.9
+Rotten Tomatoes Rating : 66%
+Country of Production  : Belgium, Germany, Canada, France, USA, UK
+Language               : English, Mohawk
+Plot                   : A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+====================================================================================
+Mon Jan 22 2018 00:16:21 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+Artist(s)         : Ace of Base
+Song Name         : The Sign
+Album Preview URL : https://p.scdn.co/mp3-preview/4c463359f67dd3546db7294d236dd0ae991882ff?cid=a9a8428e06394aeca2c0d2205877d84c
+Album Name        : The Sign (US Album) [Remastered]
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+-----------------------------------------------------------
+====================================================================================
+Mon Jan 22 2018 00:17:19 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+Tweets from @vicknadarajuofa : 
+---------------------------------
+Tweet : hello21	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello20	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello19	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello18	 | Created at : Wed Jan 17 08:46:17 +0000 2018
+Tweet : hello17	 | Created at : Wed Jan 17 08:46:16 +0000 2018
+Tweet : hello16	 | Created at : Wed Jan 17 08:46:16 +0000 2018
+Tweet : hello15	 | Created at : Wed Jan 17 08:46:16 +0000 2018
+Tweet : hello14	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello13	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello12	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello11	 | Created at : Wed Jan 17 08:46:15 +0000 2018
+Tweet : hello10	 | Created at : Wed Jan 17 08:46:14 +0000 2018
+Tweet : https://t.co/wnJhh2RJcD	 | Created at : Wed Jan 17 08:46:14 +0000 2018
+Tweet : Hello8	 | Created at : Wed Jan 17 08:46:14 +0000 2018
+Tweet : Hello7	 | Created at : Wed Jan 17 08:46:13 +0000 2018
+Tweet : Hello6	 | Created at : Wed Jan 17 08:46:13 +0000 2018
+Tweet : Hello5	 | Created at : Wed Jan 17 08:46:13 +0000 2018
+Tweet : Hello4	 | Created at : Wed Jan 17 06:47:42 +0000 2018
+Tweet : Hello3	 | Created at : Wed Jan 17 06:35:13 +0000 2018
+Tweet : Hello2	 | Created at : Wed Jan 17 06:35:03 +0000 2018
+====================================================================================
+Mon Jan 22 2018 00:18:28 GMT-0700 (US Mountain Standard Time): C:\Program Files\nodejs\node.exe,C:\Users\vnadaraj\Documents\UofA_Class\homework\liri-node-app\liri.js,do-what-it-says
+====================================================================================
+
+Invalid input! Please try again.

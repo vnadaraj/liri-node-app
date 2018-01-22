@@ -130,6 +130,10 @@ spotify-this-song,"I Want it That Way"
 require("dotenv").config();
 
 
+// Core node package for reading and writing files
+// already included as part of core Node.js
+const fs = require("fs");
+
 // // If we want to use command line user input, we can use:
 // npm install inquirer --save
 // // then load the NPM Package inquirer
@@ -241,51 +245,112 @@ In addition to logging the data to your terminal/bash window, output the data to
 
 **/
 
+// Set up a global variable to store process.argv
+let userCmdArr = process.argv;
 
-console.log("====================================================================================");
-console.log("");
-console.log("");
+// Set a timestamp to log time when user ran the program
+// A Number representing the milliseconds elapsed since the UNIX epoch.
+let logTime = new Date();
 
-let userInput = process.argv[2];
-if (userInput == "my-tweets")
-{
-	// console.log(user_input);
+// Collect command line arguments
 
-	// Returns the 20 most recent mentions (Tweets containing a users’s @screen_name) for the authenticating user.
-	var params = {
-		screen_name: 'vicknadarajuofa',
-		count: 20,
-		include_rts: 1
-	};
-	
-	client.get('statuses/user_timeline', params, function(error, tweets, response)
-	{
-		if (!error) {
-			console.log("Tweets from @" + params.screen_name + " : ");
-			console.log("---------------------------------");
-			for (let i = 0; i < tweets.length; i++ )
-			{
-        // To return the whole JSON object with prettify to identify object key names
-        // console.log(JSON.stringify(tweets, null, 2));
-        // Below is a cut down version of the JSON output:
-				console.log("Tweet : " + tweets[i].text + "\t | " + "Created at : " + tweets[i].created_at);
-			}
-		}
-		console.log("====================================================================================");
-	}
-	);
+let myAppendLog = "====================================================================================\n";
 
-} else if (userInput == "spotify-this-song") {
+myAppendLog = myAppendLog + logTime.toString() + ": " + userCmdArr + "\n";
+myAppendLog = myAppendLog + "====================================================================================\n";
+
+console.log(myAppendLog);
+
+fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+  if (myAppendError) {
+    console.log(myAppendError);    
+  }
+});
+
+// Write or append the log data into the log.txt file
+// If the file didn't exist then it gets created on the fly.
+
+let userInput = userCmdArr[2];
+
+
+// Call this main function to decide approriate action to perform based on user input
+function selectAction() {
+  if (!userInput) {
+    userInput = ""
+  };
+
+  if (userInput.toLowerCase() == "my-tweets") {
+    myTweets();
+  } else if (userInput.toLowerCase() == "spotify-this-song") {
+    mySpotify();
+  } else if (userInput.toLowerCase() == "movie-this") {
+    myMovie();
+  } else if (userInput.toLowerCase() == "do-what-it-says") {
+    myDoWhat();
+  } else {
+    console.log("Invalid input! Please try again.");
+    myAppendLog = "\nInvalid input! Please try again.\n";
+    fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+      if (myAppendError) {
+        console.log(myAppendError);    
+      }
+    });
+  };
+};
+
+// This piece of code will read from the "log.txt" file.
+// It's important to include the "utf8" parameter or the code will provide stream data (garbage)
+// The code will store the contents read inside the variable myReadData
+// fs.readFileSync("log.txt", "utf8");
+
+
+function myTweets () {
+  	// console.log(user_input);
+
+  	// Returns the 20 most recent mentions (Tweets containing a users’s @screen_name) for the authenticating user.
+  	var params = {
+  		screen_name: 'vicknadarajuofa',
+  		count: 20,
+  		include_rts: 1
+  	};
+  	
+  	client.get('statuses/user_timeline', params, function(error, tweets, response)
+  	{
+  		if (!error) {
+  			console.log("Tweets from @" + params.screen_name + " : ");
+  			console.log("---------------------------------");
+        myAppendLog = "\nTweets from @" + params.screen_name + " : \n";
+        myAppendLog = myAppendLog + "---------------------------------\n";
+
+  			for (let i = 0; i < tweets.length; i++ )
+  			{
+          // To return the whole JSON object with prettify to identify object key names
+          // console.log(JSON.stringify(tweets, null, 2));
+          // Below is a cut down version of the JSON output:
+  				console.log("Tweet : " + tweets[i].text + "\t | " + "Created at : " + tweets[i].created_at);
+          myAppendLog = myAppendLog + "Tweet : " + tweets[i].text + "\t | " + "Created at : " + tweets[i].created_at + "\n";
+  			}
+  		}
+      fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+        if (myAppendError) {
+          console.log(myAppendError);    
+        }
+      });
+  	}
+  	);
+};
+
+function mySpotify() {
 
   //  Default song handling
   let defSongName = "The Sign";
   
   // Check the user input at index 3
-  let songName = process.argv[3];
+  let songName = userCmdArr[3];
 
-  for (let sn = 4; sn < process.argv.length; sn++) {
-    songName = songName + " " + process.argv[sn];
-    console.log(songName);
+  for (let sn = 4; sn < userCmdArr.length; sn++) {
+    songName = songName + " " + userCmdArr[sn];
+    //console.log(songName);
   };
 
   if (songName) {
@@ -295,11 +360,19 @@ if (userInput == "my-tweets")
         type: 'track', query: songName
       }, function(songErr, songData) {
         if (songErr) {
+          myAppendLog = "\nError occurred: " + songErr + "\n";
+          fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+            if (myAppendError) {
+              console.log(myAppendError);    
+            }
+          });
           return console.log('Error occurred: ' + songErr);
         }
         // console.log(songData);
+        myAppendLog = "\n";
         for (let i = 0; i < songData.tracks.items.length; i++) {
-          console.log("-----------------------------------------------------------")
+          console.log("-----------------------------------------------------------");
+          myAppendLog = myAppendLog + "-----------------------------------------------------------\n";
           // Artists
           // Song name
           // preview_url
@@ -312,11 +385,20 @@ if (userInput == "my-tweets")
           for (let k = 0; k < songData.tracks.items[i].artists.length; k++) {
             //console.log(songData.tracks.items[i].artists);
             console.log("Artist(s)         : " + songData.tracks.items[i].artists[k].name);
+            myAppendLog = myAppendLog + "Artist(s)         : " + songData.tracks.items[i].artists[k].name + "\n";
           }
           console.log("Song Name         : " + songData.tracks.items[i].name);
+          myAppendLog = myAppendLog + "Song Name         : " + songData.tracks.items[i].name + "\n";
           console.log("Album Preview URL : " + songData.tracks.items[i].preview_url);
+          myAppendLog = myAppendLog + "Album Preview URL : " + songData.tracks.items[i].preview_url + "\n";
           console.log("Album Name        : " + songData.tracks.items[i].album.name);
+          myAppendLog = myAppendLog + "Album Name        : " + songData.tracks.items[i].album.name + "\n";
         };
+        fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+          if (myAppendError) {
+            console.log(myAppendError);
+          }
+        });
       }
     );
   } else {
@@ -327,11 +409,19 @@ if (userInput == "my-tweets")
         type: 'track', query: defSongName
       }, function(songErr, songData) {
         if (songErr) {
+          myAppendLog = "\nError occurred: " + songErr + "\n";
+          fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+            if (myAppendError) {
+              console.log(myAppendError);    
+            }
+          });
           return console.log('Error occurred: ' + songErr);
         }
         // console.log(songData);
+        myAppendLog = "\n";
         for (let i = 0; i < songData.tracks.items.length; i++) {
-          console.log("-----------------------------------------------------------")
+          console.log("-----------------------------------------------------------");
+          myAppendLog = myAppendLog + "-----------------------------------------------------------\n";
           // Artists
           // Song name
           // preview_url
@@ -348,18 +438,27 @@ if (userInput == "my-tweets")
             if (songData.tracks.items[i].artists[k].name == "Ace of Base") {
               foundArtist = i;
               console.log("Artist(s)         : " + songData.tracks.items[i].artists[k].name);
-          console.log("Song Name         : " + songData.tracks.items[i].name);
-          console.log("Album Preview URL : " + songData.tracks.items[i].preview_url);
-          console.log("Album Name        : " + songData.tracks.items[i].album.name);
+              myAppendLog = myAppendLog + "Artist(s)         : " + songData.tracks.items[i].artists[k].name + "\n";
+              console.log("Song Name         : " + songData.tracks.items[i].name);
+              myAppendLog = myAppendLog + "Song Name         : " + songData.tracks.items[i].name + "\n";
+              console.log("Album Preview URL : " + songData.tracks.items[i].preview_url);
+              myAppendLog = myAppendLog + "Album Preview URL : " + songData.tracks.items[i].preview_url + "\n";
+              console.log("Album Name        : " + songData.tracks.items[i].album.name);
+              myAppendLog = myAppendLog + "Album Name        : " + songData.tracks.items[i].album.name + "\n";
             }
           }
         };
+        fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+          if (myAppendError) {
+            console.log(myAppendError);
+          }
+        });
       }
     );
   }
+};
 
-
-} else if (userInput == "movie-this") {
+function myMovie() {
   /**
   Output the following information to your terminal/bash window:
 
@@ -374,10 +473,10 @@ if (userInput == "my-tweets")
   **/
 
   // Check the user input at index 3
-  let movieTitle = process.argv[3];
+  let movieTitle = userCmdArr[3];
 
-  for (let mn = 4; mn < process.argv.length; mn++) {
-    movieTitle = movieTitle + "+" + process.argv[mn];
+  for (let mn = 4; mn < userCmdArr.length; mn++) {
+    movieTitle = movieTitle + "+" + userCmdArr[mn];
     //console.log(movieTitle);
   };
 
@@ -392,6 +491,7 @@ if (userInput == "my-tweets")
       let movieFound = JSON.parse(movieBody).Response.toLowerCase();
       //console.log(movieFound);
 
+      myAppendLog = "\n";
       // If the request is successful (i.e. if the response status code is 200)
       if (!movieError && movieResponse.statusCode === 200 && movieFound === "true") {
         //console.log("Error                : " + movieError);
@@ -411,16 +511,35 @@ if (userInput == "my-tweets")
         // Use console.log(JSON.parse(movieBody)) to disect the JSON object returned
 
         console.log("Movie Title            : " + JSON.parse(movieBody).Title);
+        myAppendLog = myAppendLog + "Movie Title            : " + JSON.parse(movieBody).Title + "\n";
         console.log("Release Year           : " + JSON.parse(movieBody).Year);
+        myAppendLog = myAppendLog + "Release Year           : " + JSON.parse(movieBody).Year + "\n";
         console.log("IMDB rating            : " + JSON.parse(movieBody).imdbRating);
-        console.log("Rotten Tomatoes Rating : " + JSON.parse(movieBody).Ratings[1].Value);
+        myAppendLog = myAppendLog + "IMDB rating            : " + JSON.parse(movieBody).imdbRating + "\n";
+        let rotten = JSON.parse(movieBody).Ratings[1];
+        if (rotten) {
+          console.log("Rotten Tomatoes Rating : " + rotten.Value);
+          myAppendLog = myAppendLog + "Rotten Tomatoes Rating : " + rotten.Value + "\n";
+        } else {
+          console.log("Rotten Tomatoes Rating : " + "Not available");
+          myAppendLog = myAppendLog + "Rotten Tomatoes Rating : " + "Not available\n";
+        };
         console.log("Country of Production  : " + JSON.parse(movieBody).Country);
+        myAppendLog = myAppendLog + "Country of Production  : " + JSON.parse(movieBody).Country + "\n";
         console.log("Language               : " + JSON.parse(movieBody).Language);
+        myAppendLog = myAppendLog + "Language               : " + JSON.parse(movieBody).Language + "\n";
         console.log("Plot                   : " + JSON.parse(movieBody).Plot);
+        myAppendLog = myAppendLog + "Plot                   : " + JSON.parse(movieBody).Plot + "\n";
 
       } else {
         console.log(JSON.parse(movieBody));
+        myAppendLog = myAppendLog + JSON.stringify(movieBody, null, 2) + "\n";
       }
+      fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+        if (myAppendError) {
+          console.log(myAppendError);    
+        }
+      });      
     });
   } else {
     // Set up default movie to query
@@ -435,6 +554,7 @@ if (userInput == "my-tweets")
       let movieFound = JSON.parse(movieBody).Response.toLowerCase();
       //console.log(movieFound);
 
+      myAppendLog = "\n";
       // If the request is successful (i.e. if the response status code is 200)
       if (!movieError && movieResponse.statusCode === 200 && movieFound === "true") {
         //console.log("Error                : " + movieError);
@@ -454,18 +574,85 @@ if (userInput == "my-tweets")
         // Use console.log(JSON.parse(movieBody)) to disect the JSON object returned
 
         console.log("Movie Title            : " + JSON.parse(movieBody).Title);
+        myAppendLog = myAppendLog + "Movie Title            : " + JSON.parse(movieBody).Title + "\n";
         console.log("Release Year           : " + JSON.parse(movieBody).Year);
+        myAppendLog = myAppendLog + "Release Year           : " + JSON.parse(movieBody).Year + "\n";
         console.log("IMDB Rating            : " + JSON.parse(movieBody).imdbRating);
+        myAppendLog = myAppendLog + "IMDB rating            : " + JSON.parse(movieBody).imdbRating + "\n";
         console.log("Rotten Tomatoes Rating : " + JSON.parse(movieBody).Ratings[1].Value);
+        myAppendLog = myAppendLog + "Rotten Tomatoes Rating : " + JSON.parse(movieBody).Ratings[1].Value + "\n";
         console.log("Country of Production  : " + JSON.parse(movieBody).Country);
+        myAppendLog = myAppendLog + "Country of Production  : " + JSON.parse(movieBody).Country + "\n";
         console.log("Language               : " + JSON.parse(movieBody).Language);
+        myAppendLog = myAppendLog + "Language               : " + JSON.parse(movieBody).Language + "\n";
         console.log("Plot                   : " + JSON.parse(movieBody).Plot);
-
-      }
+        myAppendLog = myAppendLog + "Plot                   : " + JSON.parse(movieBody).Plot + "\n";
+      };
+      fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+        if (myAppendError) {
+          console.log(myAppendError);    
+        }
+      });
     });
   }
+};
 
-} else {
-	console.log("Invalid input! Please try again.");
-}
+function myDoWhat() {
+  /**
+  Using the fs Node package, LIRI will take the text inside of random.txt and then use it to call one of LIRI's commands.
 
+  It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
+
+  Feel free to change the text in that document to test out the feature for other commands.
+
+  BONUS:
+  In addition to logging the data to your terminal/bash window, output the data to a .txt file called log.txt.
+  Make sure you append each command you run to the log.txt file.
+  Do not overwrite your file each time you run a command.
+
+  **/
+
+  // Read file random.txt and check the data for instructions to execute
+  fs.readFile("random.txt", "utf8", function(ReadError, ReadData) {
+
+    // If the code experiences any errors it will log the error to the console.
+    if (ReadError) {
+        return console.log(ReadError);
+    }
+
+    // We will then print the contents of data
+    console.log("+++++++++++++++++++");
+    let arr1 = [];
+    let arr2 = [];
+    arr1.push(process.argv[0], process.argv[1]);
+    arr2 = ReadData.split(",");
+    userCmdArr = arr1.concat(arr2);
+    console.log(userCmdArr);
+    userInput = userCmdArr[2];
+    console.log("+++++++++++++++++++");
+
+    if (!userInput) {
+      userInput = "";
+    };
+
+    if (userInput.toLowerCase() == "my-tweets") {
+      myTweets();
+    } else if (userInput.toLowerCase() == "spotify-this-song") {
+      mySpotify();
+    } else if (userInput.toLowerCase() == "movie-this") {
+      myMovie();
+    } else {
+      console.log("Invalid input! Please try again.");
+      myAppendLog = "\nInvalid input! Please try again.\n";
+      fs.appendFile("log.txt", myAppendLog, function(myAppendError) {
+        if (myAppendError) {
+          console.log(myAppendError);    
+        }
+      });
+    };
+
+  });
+
+};
+
+selectAction();
